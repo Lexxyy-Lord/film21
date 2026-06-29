@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Film21 Legal Media Starter - katalog video profesional siap hosting statis.">
+  <meta name="theme-color" content="#38bdf8">
+  <title>Film21 · Legal Media Starter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Lewati ke katalog</a>
+  <header class="site-header" data-header>
+    <nav class="nav container" aria-label="Navigasi utama">
+      <a class="brand" href="#top" aria-label="Film21 home">
+        <span class="brand-mark">F21</span>
+        <span><strong>Film21</strong><small>Legal media starter</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-menu" data-nav-toggle>
+        <span></span><span></span><span></span><span class="sr-only">Buka menu</span>
+      </button>
+      <div class="nav-menu" id="main-menu" data-nav-menu>
+        <a href="#catalog">Katalog</a>
+        <a href="#features">Fitur</a>
+        <a href="#deploy">Deploy</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Ganti tema">
+          <span data-theme-icon>☾</span><span data-theme-label>Dark</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">Blue cinematic interface · responsive · InfinityFree ready</p>
+        <h1>Katalog video modern dengan tampilan profesional.</h1>
+        <p class="hero-text">Template statis untuk konten video legal, trailer resmi, public domain, atau API berlisensi. Sudah ada mode gelap/terang, pencarian, filter genre, detail modal, dan HTML5 player.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalog">Putar demo</a>
+          <a class="btn btn-ghost" href="#deploy">Panduan hosting</a>
+        </div>
+        <div class="trust-list" aria-label="Keunggulan"><span>⚡ Tanpa build step</span><span>📱 Mobile first</span><span>🎬 HTML5 player</span></div>
+      </div>
+      <aside class="hero-player" aria-label="Preview player">
+        <div class="glass-card poster-card">
+          <div class="poster-glow"></div>
+          <img id="featured-poster" alt="Poster unggulan">
+          <div class="poster-overlay"><span class="pill">Featured</span><h2 id="featured-title">Memuat...</h2><p id="featured-meta">Legal demo catalog</p></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="container toolbar" aria-label="Kontrol katalog">
+      <label class="search-box"><span class="sr-only">Cari</span><input type="search" id="search-input" placeholder="Cari judul, genre, negara..." autocomplete="off"></label>
+      <select id="genre-filter" aria-label="Filter genre"><option value="all">Semua genre</option></select>
+      <select id="sort-filter" aria-label="Urutkan katalog"><option value="featured">Rekomendasi</option><option value="rating">Rating tertinggi</option><option value="year">Tahun terbaru</option><option value="title">A-Z</option></select>
+    </section>
+
+    <section class="container notice" role="note"><strong>Catatan legal:</strong> template ini hanya untuk konten yang kamu punya haknya atau API resmi.</section>
+
+    <section class="container" id="catalog">
+      <div class="section-heading"><div><p class="eyebrow">Katalog</p><h2>Pilihan video</h2></div><p id="result-count">Memuat katalog...</p></div>
+      <div class="movie-grid" id="movie-grid" aria-live="polite"></div>
+      <div class="empty-state" id="empty-state" hidden><h3>Konten tidak ditemukan</h3><p>Coba kata kunci lain atau ubah filter genre.</p></div>
+    </section>
+
+    <section class="features container" id="features">
+      <div class="section-heading"><div><p class="eyebrow">Fitur profesional</p><h2>Siap untuk percobaan hosting</h2></div></div>
+      <div class="feature-grid">
+        <article><span>01</span><h3>Light/Dark theme</h3><p>Tema tersimpan otomatis di browser memakai localStorage.</p></article>
+        <article><span>02</span><h3>Katalog dinamis</h3><p>Data demo dipisah di JSON agar mudah diganti dengan API resmi.</p></article>
+        <article><span>03</span><h3>Video modal</h3><p>Detail, sinopsis, metadata, dan player tampil responsif.</p></article>
+      </div>
+    </section>
+
+    <section class="deploy container" id="deploy">
+      <div><p class="eyebrow">Deploy</p><h2>Upload ke InfinityFree</h2><p>Upload semua file ke folder <code>htdocs</code>. Karena ini statis HTML/CSS/JS, tidak perlu Node.js atau proses build.</p></div>
+      <ol><li>Buka File Manager / FTP InfinityFree.</li><li>Masuk ke folder <code>htdocs</code>.</li><li>Upload <code>index.html</code>, folder <code>assets</code>, folder <code>data</code>, dan <code>.htaccess</code>.</li><li>Akses domain/subdomain kamu dan tes tombol putar.</li></ol>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><p>© <span id="year"></span> Film21 Starter. Dibuat untuk konten legal/berlisensi.</p><a href="#top">Kembali ke atas ↑</a></div></footer>
+
+  <dialog class="movie-modal" id="movie-modal" aria-labelledby="modal-title">
+    <button class="modal-close" type="button" data-close-modal aria-label="Tutup modal">×</button>
+    <div class="modal-layout">
+      <div class="video-shell"><video id="modal-video" controls playsinline preload="metadata" poster=""></video></div>
+      <div class="modal-content"><span class="pill" id="modal-quality">HD</span><h2 id="modal-title">Judul</h2><p class="modal-meta" id="modal-meta"></p><p id="modal-synopsis"></p><div class="modal-tags" id="modal-tags"></div><a class="btn btn-primary" id="modal-source" href="#" target="_blank" rel="noopener">Buka sumber legal</a></div>
+    </div>
+  </dialog>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
